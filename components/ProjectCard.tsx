@@ -20,7 +20,7 @@ export default function  ProjectCard({title, desc, tech, href}:ProjectCardProps)
             </div>
             {hasLink ? (
             <Link
-                href={href!}
+                href={href!} target="_blank"
                 className="absolute bottom-4 right-4 inline-flex items-center gap-1 text-sm text-slate-700 hover:text-emerald-700"
                 >
                 <span>View</span>
