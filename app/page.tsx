@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import Section from "@/components/section";
 import Image from "next/image";
 import ProjectCard from "@/components/ProjectCard";
+import ThemeToggle from "@/components/ThemeToggle";
 
 export default function Home() {
     const [open, setOpen] = useState(false);
@@ -22,7 +23,7 @@ export default function Home() {
     return (
         <>
             {/* Header */}
-            <header className={`sticky top-0 z-50 bg-white/70 backdrop-blur-md transition-all ${scrolled ? "shadow-sm border-slate-200" : ""}`}>
+            <header className={`sticky top-0 z-50 bg-[var(--header-bg)]/50 backdrop-blur-md transition-all ${scrolled ? "shadow-sm border-slate-200" : ""}`}>
             <div className="max-w-5xl mx-auto px-4 py-4 flex justify-between items-center">
                 {/* Logo / name */}
                 <Link
@@ -41,11 +42,43 @@ export default function Home() {
                     Zahari Tzigularov
                     </span>
                 </Link>
+                
 
+                
+                {/* Desktop nav */}
+                <nav className="hidden md:flex gap-6 text-base">
+                    <a
+                    href="#projects"
+                    className="relative pb-1 hover:text-[var(--accent)] transition after:content-[''] after:absolute after:left-0 after:-bottom-0.5
+                        after:h-[1px] after:w-0 after:bg-[var(--accent)] after:transition-all after:duration-200
+                        hover:after:w-full"
+                    >
+                    Projects
+                    </a>
+                    <a
+                    href="#experience"
+                    className="relative pb-1 hover:text-[var(--accent)] transition after:content-[''] after:absolute after:left-0 after:-bottom-0.5
+                        after:h-[1px] after:w-0 after:bg-[var(--accent)] after:transition-all after:duration-200
+                        hover:after:w-full"
+                    >
+                    Experience
+                    </a>
+                    <a
+                    href="#contact"
+                    className="relative pb-1 hover:text-[var(--accent)] transition after:content-[''] after:absolute after:left-0 after:-bottom-0.5
+                        after:h-[1px] after:w-0 after:bg-[var(--accent)] after:transition-all after:duration-200
+                        hover:after:w-full"
+                    >
+                    Contact
+                    </a>
+                </nav>
+
+                
+                <ThemeToggle />
                 {/* Mobile menu button */}
                 <button
                     onClick={() => setOpen((p) => !p)}
-                    className="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-md border border-slate-200 text-slate-700"
+                    className="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-md border border-[var(--foreground)]/20 text-[var(--foreground)]"
                     aria-label="Toggle navigation"
                 >
                     <span className="sr-only">Open menu</span>
@@ -67,36 +100,7 @@ export default function Home() {
                     )}
                     </svg>
                 </button>
-
                 
-                {/* Desktop nav */}
-                <nav className="hidden md:flex gap-6 text-base text-slate-600">
-                    <a
-                    href="#projects"
-                    className="relative pb-1 hover:text-emerald-700 transition after:content-[''] after:absolute after:left-0 after:-bottom-0.5
-                        after:h-[1px] after:w-0 after:bg-emerald-700 after:transition-all after:duration-200
-                        hover:after:w-full"
-                    >
-                    Projects
-                    </a>
-                    <a
-                    href="#experience"
-                    className="relative pb-1 hover:text-emerald-700 transition after:content-[''] after:absolute after:left-0 after:-bottom-0.5
-                        after:h-[1px] after:w-0 after:bg-emerald-700 after:transition-all after:duration-200
-                        hover:after:w-full"
-                    >
-                    Experience
-                    </a>
-                    <a
-                    href="#contact"
-                    className="relative pb-1 hover:text-emerald-700 transition after:content-[''] after:absolute after:left-0 after:-bottom-0.5
-                        after:h-[1px] after:w-0 after:bg-emerald-700 after:transition-all after:duration-200
-                        hover:after:w-full"
-                    >
-                    Contact
-                    </a>
-                </nav>
-
                 {/* Mobile nav panel */}
                 <div
                     className={`
@@ -105,12 +109,12 @@ export default function Home() {
                         ${open ? "opacity-100" : "opacity-0 pointer-events-none"}
                     `}
                     >
-                    <div className="bg-white/95 backdrop-blur border border-slate-200 rounded-md shadow-md">
-                        <nav className="flex flex-col px-4 py-3 gap-2 text-slate-700">
-                        <a href="#projects" onClick={() => setOpen(false)} className="py-2 border-b border-slate-100">
+                    <div className="bg-[var(--background)]/95 backdrop-blur border border-[var(--background)] rounded-md shadow-md">
+                        <nav className="flex flex-col px-4 py-3 gap-2">
+                        <a href="#projects" onClick={() => setOpen(false)} className="py-2 border-b border-[var(--foreground)]/10">
                             Projects
                         </a>
-                        <a href="#experience" onClick={() => setOpen(false)} className="py-2 border-b border-slate-100">
+                        <a href="#experience" onClick={() => setOpen(false)} className="py-2 border-b border-[var(--foreground)]/10">
                             Experience
                         </a>
                         <a href="#contact" onClick={() => setOpen(false)} className="py-2">
@@ -124,29 +128,29 @@ export default function Home() {
 
             </header>
 
-        <main className="max-w-5xl mx-auto mt-2 px-4 space-y-16 pb-16">
+        <main className="max-w-5xl mx-auto mt-6 px-4 space-y-16 pb-16">
             {/* Hero */}
             <Section>
-            <p className="text-xs uppercase tracking-[0.25em] font-bold text-emerald-700">
+            <p className="text-xs uppercase tracking-[0.25em] font-bold text-[var(--accent)]">
                 Full-Stack Developer • Denver
             </p>
             <h1 className="text-4xl md:text-5xl font-bold mt-4 leading-tight">
                 I build fast, reliable websites and interfaces.
             </h1>
-            <p className="mt-5 max-w-2xl text-slate-700 leading-relaxed">
+            <p className="mt-5 max-w-2xl leading-relaxed">
                 19+ years building production sites in PHP, JavaScript, React, and modern tooling.
                 Currently working with Next.js, AI/LLM APIs, and cloud deployments to speed up content workflows.
             </p>
             <div className="mt-6 flex flex-wrap gap-4">
                 <a
                 href="#projects"
-                className="bg-emerald-700 border-1 border-emerald-700 text-white px-6 py-2 rounded-md font-medium transition duration-200 hover:scale-[1.01] hover:shadow-sm hover:shadow-slate-700/30"
+                className="bg-[var(--accent)] border-1 border-[var(--accent)] text-[var(--background)] px-6 py-2 rounded-md font-medium transition duration-200 hover:scale-[1.05] hover:shadow-md hover:shadow-slate-900/30"
                 >
                 View Projects
                 </a>
                 <a
                 href="#contact"
-                className="border border-slate-500 px-6 py-2 rounded-md font-medium transition duration-200 hover:scale-[1.01] hover:shadow-sm hover:shadow-slate-700/30"
+                className="border border-[var(--foreground)]/50 px-6 py-2 rounded-md font-medium transition duration-200 hover:scale-[1.05] hover:shadow-md hover:shadow-slate-900/30"
                 >
                 Contact
                 </a>
@@ -207,9 +211,9 @@ export default function Home() {
             <div className="space-y-6">
                 <div>
                 <h3 className="font-semibold">
-                    Web Programmer - BluDomain <span className="text-slate-700 text-base">(2004 – Present)</span>
+                    Web Programmer - BluDomain <span>(2004 - Present)</span>
                 </h3>
-                <p className="text-slate-700 mt-1">
+                <p className="mt-1">
                     Built and maintained production sites using PHP, MySQL, JS, jQuery, React.js, Node.js, HTML/CSS.
                     Delivered full solutions for clients and improved performance/SEO.
                 </p>
@@ -218,7 +222,7 @@ export default function Home() {
                 <h3 className="font-semibold">
                     Automatic Reconciliation Team Lead - Walmart HQ
                 </h3>
-                <p className="text-slate-700 mt-1">
+                <p className="mt-1">
                     Lead a team of four accountants and worked closely with IT department to implement a new automated system for bank reconciliation, enhancing efficiency and accuracy in HQ financial operations.
                 </p>
                 </div>
@@ -227,36 +231,36 @@ export default function Home() {
 
             {/* Tech / Learning */}
             <Section title="Current Focus">
-            <p className="text-slate-700">
-                Actively exploring Next.js App Router, server actions, AI/LLM integrations, Payload Headless CMS, and better DX for
-                multi-tenant sites. Comfortable integrating REST/JSON APIs and collaborating with design/backend teams.
-            </p>
+                <p>
+                    Actively exploring Next.js App Router, server actions, AI/LLM integrations, Payload Headless CMS, and better DX for
+                    multi-tenant sites. Comfortable integrating REST/JSON APIs and collaborating with design/backend teams.
+                </p>
             </Section>
 
             {/* Contact */}
             <Section id="contact" title="Contact">
-            <p className="text-slate-700 mb-2">
-                Email:{" "}
-                <a href="mailto:tzigularov@gmail.com" className="text-emerald-700 hover:text-emerald-900">
-                tzigularov@gmail.com
-                </a>
-            </p>
-            <p className="text-slate-700 mb-2">
-                Phone / SMS:{" "}
-                <a href="tel:13037182293" className="text-emerald-700 hover:text-emerald-900">
-                1-303-718-2293
-                </a>
-            </p>
-            <p className="text-slate-700 mb-2">
-                LinkedIn:{" "}
-                <a
-                href="https://www.linkedin.com/in/zahari-tzigularov/"
-                className="text-emerald-700 hover:text-emerald-900"
-                >
-                /in/zahari-tzigularov/
-                </a>
-            </p>
-            <p className="text-slate-700">Denver / Indian Hills, CO • Open to full-time or project work.</p>
+                <p className="mb-2">
+                    Email:{" "}
+                    <a href="mailto:tzigularov@gmail.com" className="text-[var(--accent)] hover:text-[var(--accent)]/70">
+                    tzigularov@gmail.com
+                    </a>
+                </p>
+                <p className="mb-2">
+                    Phone / SMS:{" "}
+                    <a href="tel:13037182293" className="text-[var(--accent)] hover:text-[var(--accent)]/70">
+                    1-303-718-2293
+                    </a>
+                </p>
+                <p className="mb-2">
+                    LinkedIn:{" "}
+                    <a
+                    href="https://www.linkedin.com/in/zahari-tzigularov/"
+                    className="text-[var(--accent)] hover:text-[var(--accent)]/70"
+                    >
+                    /in/zahari-tzigularov/
+                    </a>
+                </p>
+                <p>Denver / Indian Hills, CO • Open to full-time or project work.</p>
             </Section>
         </main>
         </>

@@ -17,7 +17,7 @@ export const metadata: Metadata = {
         siteName: "Zahari Tzigularov Portfolio",
         images: [
         {
-            url: "/zco_og.jpg",
+            url: "/og-zahari.jpg",
             width: 1200,
             height: 675,
             alt: "Zahari Tzigularov - Web Developer",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
         card: "summary_large_image",
         title: "Zahari Tzigularov - Web Developer",
         description: "PHP, MySQL, JavaScript, Next.js, React.",
-        images: ["/zco_og.jpg"],
+        images: ["/og-zahari.jpg"],
     },
     
 };
@@ -42,9 +42,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className="bg-slate-950 text-slate-100 antialiased">
+      <body className="text-[var(--foreground)] antialiased bg-[linear-gradient(135deg,var(--background-30),var(--background-70)),url('/abstract-bg.jpg')] bg-cover bg-center bg-fixed">
         {children}
-      </body>
+    </body>
     </html>
   );
 }
