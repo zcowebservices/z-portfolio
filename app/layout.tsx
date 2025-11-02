@@ -9,11 +9,11 @@ export const metadata: Metadata = {
         icon: "/favicon.png",     // <-- the SVG you just created in /public
         shortcut: "/favicon.png",    // <-- optional, from earlier
     },
-    metadataBase: new URL("https://www.z-portfolio.com"), // <-- change this
+    metadataBase: new URL("https://www.tzigularov.com"), // <-- change this
     openGraph: {
         title: "Zahari Tzigularov - Web Developer",
         description: "I build fast, modern sites using PHP, MySQL, JavaScript, Next.js, React.",
-        url: "https://www.z-portfolio.com",
+        url: "https://www.tzigularov.com",
         siteName: "Zahari Tzigularov Portfolio",
         images: [
         {
